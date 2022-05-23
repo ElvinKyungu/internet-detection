@@ -18,7 +18,6 @@ const offlineConnection = document.querySelector('.offline')
 				onlineConnection.classList.remove('active')
 			}, 5000);
 		})
-		online();
 		window.addEventListener('offline',()=>{
 			offline();
 		})
