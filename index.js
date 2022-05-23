@@ -1,38 +1,36 @@
-const offlineConnection = document.querySelector('.offline')
-		const onlineConnection = document.querySelector('.online')
-		const closeBtn = document.querySelectorAll('.close')
-		const refreshBtn = document.querySelector('.refreshBtn')
+const offlineConnection = document.querySelector(".offline");
+const onlineConnection = document.querySelector(".online");
+const refreshBtn = document.querySelector(".refreshBtn");
+const connections = document.querySelector(".connections");
 
-		function online() {
-			offlineConnection.classList.remove('active')
-			onlineConnection.classList.add('active')
-		}
-		function offline() {
-			offlineConnection.classList.add('active')
-			onlineConnection.classList.remove('active')
-		}
-		
-		window.addEventListener('online',()=>{
-			online();
-			setTimeout(() => {
-				onlineConnection.classList.remove('active')
-			}, 5000);
-		})
-		window.addEventListener('offline',()=>{
-			offline();
-		})
+const online = function () {
+  offlineConnection.classList.remove("active");
+  onlineConnection.classList.add("active");
+  setTimeout(() => {
+    onlineConnection.classList.remove("active");
+  }, 4000);
+};
 
-		for (let i = 0; i < closeBtn.length; i++) {
-			closeBtn[i].addEventListener('click',()=>{
-				closeBtn[i].parentNode.classList.remove('active');
-				if (closeBtn[i].parentNode.classList.contains('offline')) {
-					setTimeout(() => {
-						closeBtn[i].parentNode.classList.add('active');
-					}, 500);
-				}
-			})
-		}
+const offline = function () {
+  offlineConnection.classList.toggle("active");
+  onlineConnection.classList.remove("active");
+};
 
-		refreshBtn.addEventListener("click",()=>{
-			window.location.reload();
-		})
+window.addEventListener("online", online);
+window.addEventListener("offline", offline);
+
+connections.addEventListener("click", (e) => {
+  const target = e.target;
+  const parentNode = target.closest(".connection");
+  if (!target.classList.contains("close")) return;
+  parentNode.classList.remove("active");
+  if (parentNode.classList.contains("offline")) {
+    setTimeout(() => {
+      parentNode.classList.add("active");
+    }, 500);
+  }
+});
+
+refreshBtn.addEventListener("click", () => {
+  window.location.reload();
+});
