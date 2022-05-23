@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
-	<title>Detect Internet connection</title>
-	<!-- By Elvin Kyungu front-end web developer -->
-</head>
-<body>
-	<div class="connections">
-		<div class="connection offline">
-			<i class="material-icons wifi-off">wifi_off</i>
-			<p>Vous êtes hors connection</p>
-			<a href="#" class="refreshBtn">actualiser</a>
-			<i class="material-icons close">fermer</i>
-		</div>
-		<div class="connection online">
-			<i class="material-icons wifi">wifi</i>
-			<p>Votre internet est restauré</p>
-			<i class="material-icons close">close</i>
-		</div>
-	</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Use png icon instead because icon will not appear if the user is offline -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Detect Internet connection</title>
+    <!-- By Elvin Kyungu front-end web developer -->
+  </head>
+  <body>
+    <div class="connections">
+      <div class="connection offline">
+        <i class="material-icons wifi-off">wifi_off</i>
+        <p>Vous êtes hors connection</p>
+        <a href="#" class="refreshBtn">actualiser</a>
 
-	<script src="index.js"></script>
-</body>
+        <!-- Icon will not appear because the user will be offline  -->
+        <i class="material-icons close">fermer</i>
+      </div>
+      <div class="connection online">
+        <i class="material-icons wifi">wifi</i>
+        <p>Votre internet est restauré</p>
+        <i class="material-icons close">close</i>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
 </html>
