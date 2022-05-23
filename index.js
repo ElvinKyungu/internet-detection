@@ -23,7 +23,6 @@ connections.addEventListener("click", (e) => {
   const target = e.target;
   const parentNode = target.closest(".connection");
   if (!target.classList.contains("close")) return;
-  console.log(parentNode);
   parentNode.classList.remove("active");
   if (parentNode.classList.contains("offline")) {
     setTimeout(() => {
